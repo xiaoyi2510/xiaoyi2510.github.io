@@ -1,0 +1,9 @@
+---
+title: "Yi Xiao"
+---
+
+### Welcome to my studio!
+
+I'm currently a graduate student at Columbia University pursuing a MS degree in biostatistics. 
+I come from a pharmaceutical sciences background and am experienced in cancer research. I'm looking 
+forward to work as a data scientist in healthcare field after graduation.
