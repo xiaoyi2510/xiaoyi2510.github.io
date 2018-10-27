@@ -5,8 +5,8 @@ navbar:
   right:
     - text: "About"
       href: about.html
-    - text: "Experience"
-      href: experience.html 
+    - text: "Publication"
+      href: publication.html 
     - text: "Resume"
       href: "files/resume.pdf"
     - icon: fa-envelope fa-lg
