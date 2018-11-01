@@ -1,0 +1,90 @@
+---
+title: "plotly"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+```{r}
+library(tidyverse)
+library(plotly)
+library(flexdashboard)
+library(rnoaa)
+library(p8105.datasets)
+data("ny_noaa")
+```
+
+```{r}
+# clean the data
+set.seed(1)
+noaa_tidy_data = ny_noaa %>%
+        janitor::clean_names() %>%
+        separate(date, into = c("year", "month", "day"), sep = "-") %>%
+        mutate(prcp = prcp/10,
+               snow = snow/10, 
+               tmin = as.integer(tmin)/10,
+               tmax = as.integer(tmax)/10
+        ) %>%
+ sample_n(1000)
+       
+  
+```
+
+
+Column {data-width= 500}
+-----------------------------------------------------------------------
+
+### Graph 1 tmin vs. tmax across different months
+
+```{r}
+# Graph 1 tmin vs. tmax across different months
+noaa_tidy_data %>% 
+  plot_ly(x = ~tmin, y = ~tmax, type = "scatter", color = ~as.factor(month), mode = "markers") %>% 
+  layout(xaxis = list(title = "Minimum Temperature"), 
+         yaxis = list(title = "Maximum Temperature"))
+```
+
+Column {data-width=500}
+-----------------------------------------------------------------------
+
+### Graph 2 Yearly total precpitation from 1981 to 2010
+
+```{r}
+# Graph 2 Yearly total precpitation from 1981 to 2010
+ny_noaa %>%
+        janitor::clean_names() %>%
+        separate(date, into = c("year", "month", "day"), sep = "-") %>%
+        mutate(prcp = prcp/10,
+               snow = snow/10, 
+               tmin = as.integer(tmin)/10,
+               tmax = as.integer(tmax)/10
+        ) %>%
+       group_by(year) %>%
+       summarize(total_prep = sum(prcp, na.rm = TRUE)) %>%
+       plot_ly(x = ~year, y = ~total_prep, color = ~as.factor(year), type = "bar") %>% 
+  layout(xaxis = list(title = "Year"), yaxis = list(title = "Total Precipitation"))
+        
+```
+
+### Graph 3 Distribution of Avergae Maximum Temperature in July
+
+```{r} 
+# Graph 3 Distribution of Avergae Maximum Temperature in July
+ny_noaa %>%
+        janitor::clean_names() %>%
+        separate(date, into = c("year", "month", "day"), sep = "-") %>%
+        mutate(prcp = prcp/10,
+               snow = snow/10, 
+               tmin = as.integer(tmin)/10,
+               tmax = as.integer(tmax)/10
+        ) %>%
+        filter(month == "07") %>%
+        filter(year %in% c(2000:2010)) %>%
+        group_by(year, id) %>%
+        summarise(tmax_mean = mean(tmax)) %>%
+         plot_ly(y = ~tmax_mean, color = ~year, type = "box") %>% 
+  layout(xaxis = list(title = "Year"), yaxis = list(title = "Average Maximum Temperature Distribution in July"))
+ 
+
+```
+

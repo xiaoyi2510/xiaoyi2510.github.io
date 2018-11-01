@@ -1,10 +1,8 @@
 ---
-title: "About"
+title: "About me"
 ---
 
-### About this site
-
-I guess I can tell you a little bit about myself. I'm currently a graduate student at Columbia University pursuing a MS degree in biostatistics. I come from a pharmaceutical sciences background and am experienced in cancer research. I'm looking forward to work as a data scientist in healthcare field after graduation.
+I guess I can tell you a little bit about myself. I'm currently a first year graduate student at Columbia University pursuing a MS degree in biostatistics. I come from a pharmaceutical sciences background with expertise in cancer research. I'm experienced in R, SAS, SQL and also data analysis. I'm looking forward to work as a data scientist in healthcare field after graduation!
 
 Beyond my professiontial interest, I have loads of hobbies that I enjoy, such as:
 

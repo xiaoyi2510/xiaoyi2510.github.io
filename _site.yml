@@ -5,16 +5,23 @@ navbar:
   right:
     - text: "About"
       href: about.html
-    - text: "Publication"
-      href: publication.html 
     - text: "Resume"
       href: "files/resume.pdf"
+    - text: "Project"
+      menu:
+      - text: "noaa dashboard"
+        href: plotly.html
+      - text: "noaa code"
+        href: plotly.Rmd
+    - text: "Publication"
+      href: publication.html 
     - icon: fa-envelope fa-lg
       href: mailto:<yx2510@cumc.columbia.edu>
     - icon: fa-github fa-lg
       href: https://github.com/xiaoyi2510
     - icon: fa-linkedin fa-lg
       href: https://www.linkedin.com/in/yi-xiao-99a9b016a/
+    
    
       
       
